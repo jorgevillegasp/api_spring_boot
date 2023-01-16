@@ -6,11 +6,10 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "maestros")
+@Table(name = "maestro")
 public class Maestro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
     @Column(name = "nombre", length = 255)
     private String nombre;
@@ -20,9 +19,12 @@ public class Maestro {
     private String titulo;
     @Column(name = "estado")
     private boolean estado;
+
+    //RELACIONES
     @OneToMany(mappedBy = "maestro")
     private List<Alumno> alumnos;
 
+    //Getter y Setters
 
     public Integer getId() {
         return id;

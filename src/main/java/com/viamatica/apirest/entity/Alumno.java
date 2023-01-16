@@ -4,20 +4,19 @@ import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
-@Table(name = "alumnos")
+@Table(name = "alumno")
 public class Alumno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "nombre", length = 255)
     private String nombre;
 
     @Column(name = "apellido", length = 255)
     private String apellido;
-    @Column(name = "maestro_id")
-    private Integer maestro_id;
+    //@Column(name = "maestro_id")
+    //private Integer maestro_id;
 
     @Column(name = "estado")
     private boolean estado;
@@ -25,14 +24,13 @@ public class Alumno {
     // RELACIONES
 
     @ManyToOne
-    @JoinColumn(name = "id", insertable = false,updatable = false)
+    @JoinColumn(name = "maestro_id", insertable = false,updatable = false)
     private Maestro maestro;
     @OneToMany(mappedBy = "alumno")
     private List<AlumnoHasMateria> alumnoHasMaterias;
 
 
     //geters y setters
-
 
     public Integer getId() {
         return id;
@@ -56,14 +54,6 @@ public class Alumno {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public Integer getMaestro_id() {
-        return maestro_id;
-    }
-
-    public void setMaestro_id(Integer maestro_id) {
-        this.maestro_id = maestro_id;
     }
 
     public boolean isEstado() {

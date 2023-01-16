@@ -5,11 +5,10 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "materias")
+@Table(name = "materia")
 public class Materia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
     @Column(name = "descripcion", length = 255)
     private String descripcion;

@@ -20,6 +20,7 @@ public class AlumnoHasMateria {
 
     //Geter y setter
 
+
     public AlumnoHasMateriaPK getId() {
         return id;
     }

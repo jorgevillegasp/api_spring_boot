@@ -14,6 +14,8 @@ public class AlumnoHasMateriaPK implements Serializable {
     @Column(name = "materia_id")
     private Integer materiaId;
 
+    //GETTER Y SETTERS
+
     public Integer getAlumnoId() {
         return alumnoId;
     }

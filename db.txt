@@ -1,0 +1,31 @@
+CREATE TABLE maestro(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    titulo VARCHAR(255),
+    estado TINYINT(1)
+); 
+
+CREATE TABLE materia(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(255),
+    puntos INT,
+    estado TINYINT(1)
+);
+
+CREATE TABLE alumno(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    maestro_id INT,
+    estado TINYINT(1),
+    FOREIGN KEY(id) REFERENCES maestro(id)
+); 
+
+CREATE TABLE alumno_has_materias(
+    alumno_id INT,
+    materia_id INT,
+    PRIMARY KEY(alumno_id, materia_id),
+    FOREIGN KEY(alumno_id) REFERENCES alumno(id),
+    FOREIGN KEY(materia_id) REFERENCES materia(id)
+); 

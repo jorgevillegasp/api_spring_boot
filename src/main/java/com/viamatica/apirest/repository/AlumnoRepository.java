@@ -1,6 +1,5 @@
 package com.viamatica.apirest.repository;
 
-
 import com.viamatica.apirest.entity.Alumno;
 import com.viamatica.apirest.entity.Maestro;
 import org.springframework.data.repository.CrudRepository;
@@ -10,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public interface MaestroRepository extends CrudRepository<Maestro, Integer> {
+public interface AlumnoRepository extends CrudRepository<Alumno, Integer> {
 
-    List<Maestro> findByNombre(String nombre);
-
+    List<Alumno> findByNombre(String nombre);
 }
